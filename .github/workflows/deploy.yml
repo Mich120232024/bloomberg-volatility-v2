@@ -60,7 +60,7 @@ jobs:
             az containerapp create \
               --name ${{ env.CONTAINER_APP_NAME }} \
               --resource-group ${{ env.RESOURCE_GROUP }} \
-              --environment gzc-container-app-env \
+              --environment gzc-container-env \
               --image ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }} \
               --target-port 80 \
               --ingress external \
