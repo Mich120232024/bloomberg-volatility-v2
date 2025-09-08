@@ -63,7 +63,7 @@ function chunkArray<T>(array: T[], size: number): T[][] {
   return chunks;
 }
 
-function generateMockData(pair: string): VolatilityData {
+function generateMockData(_pair: string): VolatilityData {
   // Generate realistic mock volatility surface data
   const baseVol = 8 + Math.random() * 4; // Base volatility between 8-12%
   const matrix: number[][] = [];
@@ -104,7 +104,7 @@ export async function checkBloombergConnection(): Promise<boolean> {
 
 export async function fetchVolatilitySurface(
   pair: CurrencyPair,
-  mode: DataMode = 'Live'
+  _mode: DataMode = 'Live'
 ): Promise<VolatilityData> {
   try {
     // For development/demo, return mock data
@@ -116,7 +116,7 @@ export async function fetchVolatilitySurface(
     const securities = buildSecurities(pair, tenorLabels);
     const chunks = chunkArray(securities, 50); // Bloomberg API limit
     
-    const responses = await Promise.all(
+    await Promise.all(
       chunks.map(chunk =>
         axios.post(`${API_BASE_URL}/bloomberg/reference`, {
           securities: chunk,

@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import Plot from 'react-plotly.js';
-import { Data, Layout, Config } from 'plotly.js';
+import type { Data, Layout, Config } from 'plotly.js';
 
 interface VolatilitySurfaceProps {
   data: {
@@ -125,7 +125,7 @@ export const VolatilitySurface: React.FC<VolatilitySurfaceProps> = ({
   const config = useMemo<Partial<Config>>(() => ({
     displayModeBar: true,
     displaylogo: false,
-    modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'editInChartStudio', 'select2d', 'lasso2d'],
+    modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'select2d', 'lasso2d'] as any,
     modeBarButtons: [
       ['zoom3d', 'pan3d', 'orbitRotation', 'tableRotation', 'resetCameraDefault3d']
     ],

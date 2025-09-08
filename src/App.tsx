@@ -1,11 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
-import { TabNavigation, TabId } from './components/TabNavigation';
+import { TabNavigation } from './components/TabNavigation';
+import type { TabId } from './components/TabNavigation';
 import { VolatilitySurface } from './components/VolatilitySurface';
 import { 
   checkBloombergConnection, 
   fetchVolatilitySurface, 
-  currencyPairs,
+  currencyPairs
+} from './services/bloombergApi';
+import type {
   CurrencyPair,
   DataMode,
   VolatilityData 
